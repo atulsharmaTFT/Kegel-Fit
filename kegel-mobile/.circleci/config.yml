@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   lint:
-    executor:
+    executor:`
       name: node/default
       tag: lts
     steps:
