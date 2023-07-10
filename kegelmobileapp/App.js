@@ -1,24 +1,32 @@
-import { useSelector, Provider } from 'react-redux';
+import {useSelector, Provider} from 'react-redux';
 import store from './src/Store';
-import { NavigationContainer } from '@react-navigation/native';
-import { AuthStack, MainStack } from './src/route';
+import {NavigationContainer} from '@react-navigation/native';
+import {AuthStack, MainStack, OnboardingStack} from './src/route';
 
 function App() {
   // const { token } = useSelector((state) => state?.user);
-  
+
   const MainPage = () => {
+    let onBoardingDone = false;
+    let token = false;
     return (
       <>
-        {true ? <MainStack /> : <AuthStack />}
+        {!onBoardingDone ? (
+          <OnboardingStack />
+        ) : token ? (
+          <MainStack />
+        ) : (
+          <AuthStack />
+        )}
       </>
-    )
-  }
-  
+    );
+  };
+
   return (
     // <Provider store={store}>
-      <NavigationContainer>
-        <MainPage />
-      </NavigationContainer>
+    <NavigationContainer>
+      <MainPage />
+    </NavigationContainer>
     // </Provider>r
   );
 }

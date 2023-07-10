@@ -4,10 +4,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {About, Home, Progress, Workout} from '../containers/Tab-screens';
 import {hideHeader} from './helper';
 import {Login, Register} from '../containers/Auth';
+import {Welcome} from '../containers/Onboarding/Welcome';
 
 const LoginStack = createNativeStackNavigator();
 const Stack = createNativeStackNavigator();
 const TabStack = createBottomTabNavigator();
+const OnBoardingStack = createNativeStackNavigator();
 
 export const Tabs = () => {
   return (
@@ -25,6 +27,15 @@ export const AuthStack = () => {
       <LoginStack.Screen name="login" component={Login} />
       <LoginStack.Screen name="register" component={Register} />
     </LoginStack.Navigator>
+  );
+};
+export const OnboardingStack = () => {
+  return (
+    <OnBoardingStack.Navigator
+      screenOptions={hideHeader}
+      initialRouteName="welcome">
+      <OnBoardingStack.Screen name="welcome" component={Welcome} />
+    </OnBoardingStack.Navigator>
   );
 };
 export const MainStack = () => {
