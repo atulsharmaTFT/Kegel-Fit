@@ -5,6 +5,7 @@ import {About, Home, Progress, Workout} from '../containers/Tab-screens';
 import {hideHeader} from './helper';
 import {Login, Register} from '../containers/Auth';
 import {Welcome} from '../containers/Onboarding/Welcome';
+import UserDetails from '../containers/Onboarding/UserDetails';
 
 const LoginStack = createNativeStackNavigator();
 const Stack = createNativeStackNavigator();
@@ -35,6 +36,7 @@ export const OnboardingStack = () => {
       screenOptions={hideHeader}
       initialRouteName="welcome">
       <OnBoardingStack.Screen name="welcome" component={Welcome} />
+      <OnBoardingStack.Screen name="getDetails" component={UserDetails} />
     </OnBoardingStack.Navigator>
   );
 };
