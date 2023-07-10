@@ -6,6 +6,7 @@ import {hideHeader} from './helper';
 import {Login, Register} from '../containers/Auth';
 import {Welcome} from '../containers/Onboarding/Welcome';
 import UserDetails from '../containers/Onboarding/UserDetails';
+import CustomTabBar from './customTab';
 
 const LoginStack = createNativeStackNavigator();
 const Stack = createNativeStackNavigator();
@@ -14,11 +15,15 @@ const OnBoardingStack = createNativeStackNavigator();
 
 export const Tabs = () => {
   return (
-    <TabStack.Navigator screenOptions={hideHeader} initialRouteName={'Home'}>
+    <TabStack.Navigator 
+    screenOptions={hideHeader} 
+    initialRouteName={'Home'}
+    tabBar={(props) => <CustomTabBar {...props} />}
+    >
       <TabStack.Screen name="Home" component={Home} />
       <TabStack.Screen name="Workout" component={Workout} />
       <TabStack.Screen name="Progress" component={Progress} />
-      <TabStack.Screen name="About" component={About} />
+      <TabStack.Screen name="Insights" component={About} />
     </TabStack.Navigator>
   );
 };
