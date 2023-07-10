@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   user: {},
 };
 
-function userReducer(state = INITIAL_STATE, action) {
+function UserReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case TYPES.user:
       return {
@@ -24,4 +24,4 @@ function userReducer(state = INITIAL_STATE, action) {
       return state;
   }
 }
-export default userReducer;
+export default UserReducer;
