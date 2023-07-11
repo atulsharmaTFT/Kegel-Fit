@@ -7,23 +7,32 @@ import {Login, Register} from '../containers/Auth';
 import {Welcome} from '../containers/Onboarding/Welcome';
 import UserDetails from '../containers/Onboarding/UserDetails';
 import CustomTabBar from './customTab';
+import CustomHeader from './customHeader';
 
 const LoginStack = createNativeStackNavigator();
 const Stack = createNativeStackNavigator();
 const TabStack = createBottomTabNavigator();
 const OnBoardingStack = createNativeStackNavigator();
-
 export const Tabs = () => {
   return (
     <TabStack.Navigator 
-    screenOptions={hideHeader} 
+    // screenOptions={hideHeader} 
     initialRouteName={'Home'}
     tabBar={(props) => <CustomTabBar {...props} />}
     >
-      <TabStack.Screen name="Home" component={Home} />
-      <TabStack.Screen name="Workout" component={Workout} />
-      <TabStack.Screen name="Progress" component={Progress} />
-      <TabStack.Screen name="Insights" component={About} />
+      <TabStack.Screen name="Home" component={Home}
+      options={{
+        header: (props) => <CustomHeader {...props} title="Home" />,
+      }} />
+      <TabStack.Screen name="Workout" component={Workout} options={{
+        header: (props) => <CustomHeader {...props} title="Workout" />,
+      }} />
+      <TabStack.Screen name="Progress" component={Progress} options={{
+        header: (props) => <CustomHeader {...props} title="Progress" />,
+      }} />
+      <TabStack.Screen name="Insights" component={About} options={{
+        header: (props) => <CustomHeader {...props} title="Insights" />,
+      }} />
     </TabStack.Navigator>
   );
 };
